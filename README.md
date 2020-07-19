@@ -5,3 +5,4 @@ que pueda atender cualquier emergencia nacional. Para la sostenibilidad financie
 se decidió que los servicios que ofrece el Hospital también puedan ser vendidos al público en
 general, lo que hace necesario la creación de un sistema administrador del hospital que se
 describe a continuación.
+Plan de Proyecto : https://ora.pm/project/243833/kanban
