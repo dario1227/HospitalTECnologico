@@ -7,7 +7,7 @@ namespace HospitalTEC_API.Models
         [Key]
         public string procedimientoid { get; set; }
         public string nombre { get; set; }
-        public string recuperacion { get; set; }
+        public int recuperacion { get; set; }
 
     }
 }

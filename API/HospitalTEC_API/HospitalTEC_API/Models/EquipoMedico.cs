@@ -8,7 +8,7 @@ namespace HospitalTEC_API.Models
         public string equipoid { get; set; }
         public string nombre { get; set; }
         public string proveedor { get; set; }
-        public string cantdisponible { get; set; }
+        public int cantdisponible { get; set; }
 
     }
 }

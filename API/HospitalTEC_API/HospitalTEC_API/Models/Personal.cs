@@ -12,7 +12,7 @@ namespace HospitalTEC_API.Models
         public string telefono { get; set; }
         public string direccion { get; set; }
         public DateTime fechaingreso { get; set; }
-        public string nacimiento { get; set; }  
+        public DateTime nacimiento { get; set; }  
         public string cargo{ get; set; }
 
 
