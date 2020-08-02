@@ -10,6 +10,8 @@ import {PacienteComponent} from './DoctorView/paciente/paciente.component';
 import {AgregarComponent} from './PacienteView/agregar/agregar.component';
 import {ReservacionComponent} from './PacienteView/reservacion/reservacion.component';
 import {HomePacienteComponent} from './PacienteView/home-paciente/home-paciente.component';
+import {HomeDoctorComponent} from './DoctorView/home-doctor/home-doctor.component';
+import {HistorialComponent} from './DoctorView/historial/historial.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,14 @@ const routes: Routes = [
     path: '', redirectTo: '/Home', pathMatch: 'full'
   },
   { path: 'Home', component: AdminHomeComponent },
+  {
+    path: 'HospitalDoctor', pathMatch: 'prefix',
+    children: [
+      { path: 'HistorialView', pathMatch: 'prefix', component: HistorialComponent},
+      { path: 'PacientesView', pathMatch: 'prefix', component: PacienteComponent},
+      { path: '', component:  HomeDoctorComponent}
+    ]
+  },
   {
     path: 'HospitalPaciente', pathMatch: 'prefix',
     children: [
