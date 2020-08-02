@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "login-68cd9": {
+      "hosting": {
+        "WEB": [
+          "login-68cd9"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<app-navbar-admin></app-navbar-admin>
+
+<blockquote class="blockquote ml-5">
+  <h2>Equipo Medico</h2>
+  <h3 >
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </h3>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Codigo</div>
+      <div class="td">Nombre</div>
+      <div class="td">Proveedor</div>
+      <div class="td">Cantidad DIsponible</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addEquipo()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of equipoForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <input class="form-control" formControlName="equipoid">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="nombre">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="proveedor">
+      </div>
+      <div class="td">
+        <input class="form-control" type =number formControlName="cantdisponible">
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+        <button class="btn btn-light ml-1" (click)="onDelete(fg.get('equipoid').value,i)">
+          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -39,6 +39,11 @@ namespace HospitalTEC_API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(options =>
+                options.WithOrigins("http://localhost:4200/")
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
 
             app.UseHttpsRedirection();
 
