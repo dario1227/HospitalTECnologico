@@ -1,1 +1,66 @@
-<p>reservacion works!</p>
+<app-navbar-paciente></app-navbar-paciente>
+
+<blockquote class="blockquote ml-5">
+  <h2>Reservaciones</h2>
+  <footer class="blockquote-footer">
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </footer>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Codigo</div>
+      <div class="td">Procedimiento</div>
+      <div class="td">Ingreso</div>
+      <div class="td">Salida</div>
+      <div class="td">Paciente</div>
+      <div class="td">Cama</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addreservacion()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of reservacionForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <input class="form-control" formControlName="reservacionid" [readonly]="true" size="5">
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="procedimiento" >
+          <option *ngFor=" let item of procedimientos" value="{{item.procedimientoid}}">{{item.nombre}}</option>
+        </select>      </div>
+      <div class="td">
+        <input class="form-control" formControlName="fechaingreso" size="5" type="date">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="fechasalida" size="5" type="date">
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="paciente" >
+          <option *ngFor=" let item of pacientes" value="{{item.cedula}}">{{item.cedula}}</option>
+        </select>      </div>
+      <div class="td">
+        <select class="form-control" formControlName="cama" >
+          <option *ngFor=" let item of camas" value="{{item.camaid}}">{{item.camaid}}</option>
+        </select>
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+        <button class="btn btn-light ml-1" (click)="onDelete(fg.get('reservacionid').value,i)">
+          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
