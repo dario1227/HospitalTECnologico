@@ -27,6 +27,10 @@
 .center {
   transform: translate(5%, -30%);
 }
+select{
+  transform: translate(0%, -30%);
+
+}
 .thead div.tr div.td:last-child {
     background-color: #fff;
 }

@@ -1,1 +1,61 @@
-<p>cama works!</p>
+<app-navbar-admin></app-navbar-admin>
+
+<blockquote class="blockquote ml-5">
+  <h2>Camas</h2>
+  <footer class="blockquote-footer">
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </footer>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Codigo</div>
+      <div class="td">UCI</div>
+      <div class="td">Salon</div>
+      <div class="td">Equipo</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addcama()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of camaForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <input class="form-control" formControlName="camaid" [readonly]="true" size="3">
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="uci">
+          <option>si</option>
+          <option>no</option>
+        </select>
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="salon" >
+          <option *ngFor=" let item of Salones" value="{{item.salonid}}">{{item.nombre}}</option>
+        </select>
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="equipomedico" >
+          <option *ngFor=" let item of Equipos" value="{{item.equipoid}}">{{item.nombre}}</option>
+        </select>
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+        <button class="btn btn-light ml-1" (click)="onDelete(fg.get('camaid').value,i)">
+          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

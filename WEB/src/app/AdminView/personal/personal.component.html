@@ -1,1 +1,74 @@
-<p>personal works!</p>
+<app-navbar-admin></app-navbar-admin>
+
+<blockquote class="blockquote ml-5">
+  <h2>Equipo Medico</h2>
+  <footer class="blockquote-footer">
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </footer>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Cedula</div>
+      <div class="td">Nombre</div>
+      <div class="td">Apellido</div>
+      <div class="td">Telefono</div>
+      <div class="td">Direccion</div>
+      <div class="td">Ingreso</div>
+      <div class="td">Nacimiento</div>
+      <div class="td">Cargo</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addpersonal()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of personalForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <input class="form-control" formControlName="cedula" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="nombre" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="apellido" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="telefono" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="direccion">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="fechaingreso" size="5" type="date">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="nacimiento" size="5" type="date">
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="cargo">
+          <option>Doctor</option>
+          <option>Enfermero</option>
+          <option>Administracion</option>>
+        </select>
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+        <button class="btn btn-light ml-1" (click)="onDelete(fg.get('cedula').value,i)">
+          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+

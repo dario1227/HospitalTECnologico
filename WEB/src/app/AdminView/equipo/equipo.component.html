@@ -2,13 +2,13 @@
 
 <blockquote class="blockquote ml-5">
   <h2>Equipo Medico</h2>
-  <h3 >
+  <footer class="blockquote-footer">
     HospitalTECnologico
     <span *ngIf="notification" class="elementToFadeInAndOut">
             <i class="fa fa-check-circle {{notification.class}}"></i>
       {{notification.message}}
         </span>
-  </h3>
+  </footer>
 </blockquote>
 
 
@@ -30,16 +30,16 @@
   <div class="tbody">
     <form class="tr" [formGroup]="fg" *ngFor="let fg of equipoForms.controls; let i=index" (submit)="recordSubmit(fg)">
       <div class="td">
-        <input class="form-control" formControlName="equipoid">
+        <input class="form-control" formControlName="equipoid" [readonly]="true" size="3">
       </div>
       <div class="td">
         <input class="form-control" formControlName="nombre">
       </div>
       <div class="td">
-        <input class="form-control" formControlName="proveedor">
+        <input class="form-control" formControlName="proveedor" size="8">
       </div>
       <div class="td">
-        <input class="form-control" type =number formControlName="cantdisponible">
+        <input class="form-control" type =number formControlName="cantdisponible" size="2">
       </div>
       <div class="center" >
         <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i

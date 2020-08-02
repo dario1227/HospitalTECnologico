@@ -18,7 +18,7 @@
     <div class="tr">
       <div class="td">Codigo</div>
       <div class="td">Nombre</div>
-      <div class="td">Dis de Recuperacion</div>
+      <div class="td">Dias de Recuperacion</div>
       <div class="td">
         <button class="btn btn-outline-success" (click)="addProcedimiento()">
           <i class="fa fa-plus"></i>Nuevo
@@ -29,13 +29,13 @@
   <div class="tbody">
     <form class="tr" [formGroup]="fg" *ngFor="let fg of ProcedimientoForms.controls; let i=index" (submit)="recordSubmit(fg)">
       <div class="td">
-        <input class="form-control" formControlName="procedimientoid">
+        <input class="form-control" formControlName="procedimientoid" [readonly]="true" size="3">
       </div>
       <div class="td">
         <input class="form-control" formControlName="nombre">
       </div>
       <div class="td">
-      <input class="form-control" type =number formControlName="recuperacion">
+      <input class="form-control" type =number formControlName="recuperacion" size="3">
     </div>
       <div class="center" >
         <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
