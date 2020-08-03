@@ -1,0 +1,65 @@
+<app-navbar-admin></app-navbar-admin>
+
+<blockquote class="blockquote ml-5">
+  <h2>Pacientes CoTEC</h2>
+  <footer class="blockquote-footer">
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </footer>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Cedula</div>
+      <div class="td">Nombre</div>
+      <div class="td">Apellido</div>
+      <div class="td">Telefono</div>
+      <div class="td">Direccion</div>
+      <div class="td">Medico</div>
+      <div class="td">Nacimiento</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addPaciente()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of PacienteForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <input class="form-control" formControlName="cedula" size="7">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="nombre" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="apellido" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="telefono" size="5">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="direccion">
+      </div>
+      <div class="td">
+        <select class="form-control" formControlName="medico" >
+          <option *ngFor=" let item of medicos" value="{{item.cedula}}">{{item.cedula}}</option>
+        </select>
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="nacimiento" size="5" type="date">
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+      </div>
+    </form>
+  </div>
+</div>
+

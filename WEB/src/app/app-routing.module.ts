@@ -12,6 +12,7 @@ import {ReservacionComponent} from './PacienteView/reservacion/reservacion.compo
 import {HomePacienteComponent} from './PacienteView/home-paciente/home-paciente.component';
 import {HomeDoctorComponent} from './DoctorView/home-doctor/home-doctor.component';
 import {HistorialComponent} from './DoctorView/historial/historial.component';
+import {sincronizacionComponent} from './AdminView/sincronizacion/sincronizacion.component';
 
 
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
       { path: 'EquipoView', pathMatch: 'prefix', component: EquipoComponent},
       { path: 'SalonView', pathMatch: 'prefix', component: SalonesComponent},
       { path: 'CamaView', pathMatch: 'prefix', component: CamaComponent},
+      { path: 'SincronizacionView', pathMatch: 'prefix', component: sincronizacionComponent},
       { path: '', component:  AdminHomeComponent}
     ]
   },

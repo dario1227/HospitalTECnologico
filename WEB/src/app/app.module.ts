@@ -19,6 +19,8 @@ import { AgregarComponent } from './PacienteView/agregar/agregar.component';
 import { ReservacionComponent } from './PacienteView/reservacion/reservacion.component';
 import { NavbarPacienteComponent } from './PacienteView/navbar-paciente/navbar-paciente.component';
 import { HomePacienteComponent } from './PacienteView/home-paciente/home-paciente.component';
+import { sincronizacionComponent } from './AdminView/sincronizacion/sincronizacion.component';
+import { ReporteComponent } from './AdminView/reporte/reporte.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { HomePacienteComponent } from './PacienteView/home-paciente/home-pacient
     AgregarComponent,
     ReservacionComponent,
     NavbarPacienteComponent,
-    HomePacienteComponent
+    HomePacienteComponent,
+    sincronizacionComponent,
+    ReporteComponent
   ],
   imports: [
     AppRoutingModule,

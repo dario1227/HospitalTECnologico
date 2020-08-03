@@ -21,6 +21,9 @@ export class PacienteService {
   getpaciente(){
     return this.http.get('http://localhost:5000/' + 'HospitalTECnologico/Pacientes');
   }
+  getpacienteCoTEC(){
+    return this.http.get('http://localhost:5500/' + 'CoTEC/Pacientes');
+  }
   getPersonal(){
     return this.http.get('http://localhost:5000/' + 'HospitalTECnologico/Personal');
   }
