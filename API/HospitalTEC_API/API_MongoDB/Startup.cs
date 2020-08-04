@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_MongoDB.Models;
+using API_MongoDB.Servicios;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace API_MongoDB
 {
@@ -25,7 +28,13 @@ namespace API_MongoDB
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<EvaluacionDatabaseSettings>(
+                Configuration.GetSection(nameof(EvaluacionDatabaseSettings)));
+
+            services.AddSingleton<IEvaluacionDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<EvaluacionDatabaseSettings>>().Value);
             services.AddControllers();
+            services.AddSingleton<calificacionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +48,11 @@ namespace API_MongoDB
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors(options =>
+                options.WithOrigins("http://127.0.0.1:4200")
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .AllowAnyHeader());
 
             app.UseAuthorization();
 
