@@ -1,9 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" [routerLink]="['/HospitalPaciente/PacientesView']">HospitalTECnologico</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-</nav>
+<app-navbar-paciente></app-navbar-paciente>
 
 <div class="row">
   <div class="col-md-6 mx-auto mt-5">
@@ -38,11 +33,11 @@
           <div class="form-group">
             <label >Medico</label>
             <select  class="form-control" formControlName="medico">
-            <option>
+              <option>
               <option *ngFor=" let item of medicos" value="{{item.cedula}}">{{item.nombre}} {{item.apellido}}</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-primary  btn-lg btn-block">Inscribir </button>
+          <button type="submit" class="btn btn-light  btn-lg btn-block">Actualizar </button>
         </form>
       </div>
     </div>

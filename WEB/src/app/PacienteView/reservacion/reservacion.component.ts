@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ReservacionService} from '../../Connections/ReservacionService';
+import {cedulainscrita} from '../agregar/agregar.component';
 @Component({
   selector: 'app-reservacion',
   templateUrl: './reservacion.component.html',
@@ -28,15 +29,17 @@ export class ReservacionComponent implements OnInit {
         } else {
           (res as []).forEach((reservacion: any) => {
             this.counter = this.counter + 15;
-            this.reservacionForms.push(this.fb.group({
-              dataID: [1],
-              reservacionid: [reservacion.reservacionid, Validators.required],
-              procedimiento: [reservacion.procedimiento],
-              fechaingreso: [new Date(reservacion.fechaingreso).toISOString().split('T')[0]],
-              fechasalida: [new Date(reservacion.fechasalida).toISOString().split('T')[0]],
-              paciente: [reservacion.paciente],
-              cama: [reservacion.cama],
-            }));
+            if(cedulainscrita==reservacion.paciente) {
+              this.reservacionForms.push(this.fb.group({
+                dataID: [1],
+                reservacionid: [reservacion.reservacionid, Validators.required],
+                procedimiento: [reservacion.procedimiento],
+                fechaingreso: [new Date(reservacion.fechaingreso).toISOString().split('T')[0]],
+                fechasalida: [new Date(reservacion.fechasalida).toISOString().split('T')[0]],
+                paciente: [reservacion.paciente],
+                cama: [reservacion.cama],
+              }));
+            }
           });
         }
       }
@@ -50,7 +53,7 @@ export class ReservacionComponent implements OnInit {
       procedimiento: [''],
       fechaingreso: [''],
       fechasalida: [''],
-      paciente: [''],
+      paciente: [cedulainscrita],
       cama: [''],
     }));
   }

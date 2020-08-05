@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {PacienteService} from '../../Connections/PacienteService';
 import { Router } from '@angular/router';
-export var cedulainscrita = '';
+import {cedulainscrita} from '../agregar/agregar.component';
+
 @Component({
-  selector: 'app-agregar',
-  templateUrl: './agregar.component.html',
-  styleUrls: ['./agregar.component.css']
+  selector: 'app-perfil',
+  templateUrl: './perfil.component.html',
+  styleUrls: ['./perfil.component.css']
 })
-export class AgregarComponent implements OnInit {
+export class perfilComponent implements OnInit {
   pacienteForms: FormArray = this.fb.array([]);
   notification = null;
   medicos = [];
@@ -18,7 +19,25 @@ export class AgregarComponent implements OnInit {
 
   ngOnInit(): void {
     this.pacienteService.getPersonal().subscribe(res => this.medicos = res as []);
-    this.addpaciente();
+    this.pacienteService.getpaciente().subscribe(
+      res => {
+        (res as []).forEach((paciente: any) => {
+          this.counter = this.counter + 15;
+          if(cedulainscrita==paciente.cedula) {
+            this.pacienteForms.push(this.fb.group({
+              dataID: [1],
+              cedula: [paciente.cedula, Validators.required],
+              nombre: [paciente.nombre],
+              apellido: [paciente.apellido],
+              telefono: [paciente.telefono],
+              direccion: [paciente.direccion],
+              nacimiento: [new Date(paciente.nacimiento).toISOString().split('T')[0]],
+              medico: [paciente.medico],
+            }));
+          }
+        });
+      }
+    );
   }
   addpaciente(){
     this.counter = this.counter + 1;
@@ -47,7 +66,6 @@ export class AgregarComponent implements OnInit {
       );
 
     }
-    cedulainscrita = fg.value.cedula;
     this.router.navigate(['/HospitalPaciente/PerfilView']);
   }
   onDelete(cedula, i){

@@ -13,6 +13,9 @@ import {HomePacienteComponent} from './PacienteView/home-paciente/home-paciente.
 import {HomeDoctorComponent} from './DoctorView/home-doctor/home-doctor.component';
 import {HistorialComponent} from './DoctorView/historial/historial.component';
 import {sincronizacionComponent} from './AdminView/sincronizacion/sincronizacion.component';
+import {perfilComponent} from './PacienteView/perfil/perfil.component';
+import {HistorialPersonalComponent} from './PacienteView/historial-personal/historial-personal.component';
+import {EvaluacionComponent} from './PacienteView/evaluacion/evaluacion.component';
 
 
 const routes: Routes = [
@@ -33,6 +36,10 @@ const routes: Routes = [
     children: [
       { path: 'ReservacionView', pathMatch: 'prefix', component: ReservacionComponent},
       { path: 'PacientesView', pathMatch: 'prefix', component: AgregarComponent},
+      { path: 'PerfilView', pathMatch: 'prefix', component: perfilComponent},
+      { path: 'HistorialPersonalView', pathMatch: 'prefix', component: HistorialPersonalComponent},
+      { path: 'EvaluacionView', pathMatch: 'prefix', component: EvaluacionComponent},
+
       { path: '', component:  HomePacienteComponent}
     ]
   },

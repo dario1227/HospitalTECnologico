@@ -21,6 +21,9 @@ import { NavbarPacienteComponent } from './PacienteView/navbar-paciente/navbar-p
 import { HomePacienteComponent } from './PacienteView/home-paciente/home-paciente.component';
 import { sincronizacionComponent } from './AdminView/sincronizacion/sincronizacion.component';
 import { ReporteComponent } from './AdminView/reporte/reporte.component';
+import { perfilComponent } from './PacienteView/perfil/perfil.component';
+import { EvaluacionComponent } from './PacienteView/evaluacion/evaluacion.component';
+import { HistorialPersonalComponent } from './PacienteView/historial-personal/historial-personal.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { ReporteComponent } from './AdminView/reporte/reporte.component';
     NavbarPacienteComponent,
     HomePacienteComponent,
     sincronizacionComponent,
-    ReporteComponent
+    ReporteComponent,
+    perfilComponent,
+    EvaluacionComponent,
+    HistorialPersonalComponent
   ],
   imports: [
     AppRoutingModule,

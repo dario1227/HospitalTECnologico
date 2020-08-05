@@ -1,0 +1,61 @@
+<app-navbar-paciente></app-navbar-paciente>
+
+<blockquote class="blockquote ml-5">
+  <h2>Historial Clinico</h2>
+  <footer class="blockquote-footer">
+    HospitalTECnologico
+    <span *ngIf="notification" class="elementToFadeInAndOut">
+            <i class="fa fa-check-circle {{notification.class}}"></i>
+      {{notification.message}}
+        </span>
+  </footer>
+</blockquote>
+
+
+<div class="table-responsive">
+
+  <div class="thead">
+    <div class="tr">
+      <div class="td">Paciente</div>
+      <div class="td">Procedimiento</div>
+      <div class="td">Fecha</div>
+      <div class="td">Tratamiento</div>
+      <div class="td">Patologia</div>
+      <div class="td">
+        <button class="btn btn-outline-success" (click)="addhistorial()">
+          <i class="fa fa-plus"></i>Nuevo
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tbody">
+    <form class="tr" [formGroup]="fg" *ngFor="let fg of historialForms.controls; let i=index" (submit)="recordSubmit(fg)">
+      <div class="td">
+        <select class="form-control" formControlName="paciente" >
+          <option *ngFor=" let item of pacientes" value="{{item.cedula}}">{{item.nombre}} {{item.apellido}}</option>
+        </select>      </div>
+      <div class="td">
+        <select class="form-control" formControlName="procedimiento" >
+          <option *ngFor=" let item of procedimientos" value="{{item.procedimientoid}}">{{item.nombre}}</option>
+        </select>
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="fecharealizado" size="5" type="date">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="tratamiento" >
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="patologia" >
+      </div>
+      <div class="center" >
+        <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
+          class="far fa-save fa-lg"></i></button>
+        <button class="btn btn-light ml-1" (click)="onDelete(fg.get('historialid').value,i)">
+          <i class="fas fa-trash-alt fa-lg text-danger"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
