@@ -36,7 +36,7 @@
       </div>
       <div class="td">
         <select class="form-control" formControlName="paciente" >
-          <option *ngFor=" let item of pacientes" value="{{item.cedula}}">{{item.cedula}}</option>
+          <option *ngFor=" let item of pacientes" value="{{item.cedula}}">{{item.nombre}} {{item.apellido}}</option>
         </select>      </div>
       <div class="td">
         <select class="form-control" formControlName="procedimiento" >
