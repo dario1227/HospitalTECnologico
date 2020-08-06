@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {EvaluacionService} from '../../Connections/evaluacionService';
+import {EvaluacionService} from '../../Connections/EvaluacionService';
 import { Router } from '@angular/router';
 import {cedulainscrita} from '../agregar/agregar.component';
 

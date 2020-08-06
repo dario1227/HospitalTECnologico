@@ -16,6 +16,7 @@ import {sincronizacionComponent} from './AdminView/sincronizacion/sincronizacion
 import {perfilComponent} from './PacienteView/perfil/perfil.component';
 import {HistorialPersonalComponent} from './PacienteView/historial-personal/historial-personal.component';
 import {EvaluacionComponent} from './PacienteView/evaluacion/evaluacion.component';
+import {ReporteComponent} from './AdminView/reporte/reporte.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,6 @@ const routes: Routes = [
       { path: 'PerfilView', pathMatch: 'prefix', component: perfilComponent},
       { path: 'HistorialPersonalView', pathMatch: 'prefix', component: HistorialPersonalComponent},
       { path: 'EvaluacionView', pathMatch: 'prefix', component: EvaluacionComponent},
-
       { path: '', component:  HomePacienteComponent}
     ]
   },
@@ -52,6 +52,7 @@ const routes: Routes = [
       { path: 'SalonView', pathMatch: 'prefix', component: SalonesComponent},
       { path: 'CamaView', pathMatch: 'prefix', component: CamaComponent},
       { path: 'SincronizacionView', pathMatch: 'prefix', component: sincronizacionComponent},
+      { path: 'ReporteView', pathMatch: 'prefix', component: ReporteComponent},
       { path: '', component:  AdminHomeComponent}
     ]
   },

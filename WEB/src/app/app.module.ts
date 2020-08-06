@@ -24,7 +24,7 @@ import { ReporteComponent } from './AdminView/reporte/reporte.component';
 import { perfilComponent } from './PacienteView/perfil/perfil.component';
 import { EvaluacionComponent } from './PacienteView/evaluacion/evaluacion.component';
 import { HistorialPersonalComponent } from './PacienteView/historial-personal/historial-personal.component';
-
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,9 +47,10 @@ import { HistorialPersonalComponent } from './PacienteView/historial-personal/hi
     ReporteComponent,
     perfilComponent,
     EvaluacionComponent,
-    HistorialPersonalComponent
+    HistorialPersonalComponent,
   ],
   imports: [
+    ChartsModule,
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
