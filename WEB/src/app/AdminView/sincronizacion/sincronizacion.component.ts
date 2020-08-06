@@ -26,14 +26,14 @@ export class sincronizacionComponent implements OnInit {
         else{
           (res as []).forEach((paciente: any) => {
             this.PacienteForms.push(this.fb.group({
-              dataID : [0],
+              dataID : [1],
               cedula: [paciente.cedula.toString()],
               nombre : [paciente.nombre],
               apellido : [paciente.apellido],
               telefono: [''],
               direccion : ['San Jose'],
               nacimiento: [new Date()],
-              medico: [''],
+              medico: ['778855256'],
             }));
           });
         }
@@ -69,6 +69,20 @@ export class sincronizacionComponent implements OnInit {
 
     }
   }
+  RecordAll(){
+    var data = this.PacienteForms.controls;
+    var lenght = data.length;
+    var counter = 0;
+    this.showNotification('insert');
+    while(counter<lenght){
+      // @ts-ignore
+      this.recordSubmit(data[counter]);
+      counter++;
+    }
+
+
+  }
+
 
   showNotification(category){
     switch (category) {
