@@ -29,6 +29,7 @@ export class HistorialPersonalComponent implements OnInit {
             if(cedulainscrita==historial.paciente) {
               this.historialForms.push(this.fb.group({
                 dataID: [1],
+                historialid: [historial.historialid, Validators.required],
                 procedimiento: [historial.procedimiento],
                 fecharealizado: [new Date(historial.fecharealizado).toISOString().split('T')[0]],
                 paciente: [historial.paciente],
@@ -45,9 +46,10 @@ export class HistorialPersonalComponent implements OnInit {
     this.counter = this.counter + 1;
     this.historialForms.push(this.fb.group({
       dataID : [0],
+      historialid: ['HC' + this.counter.toString(), Validators.required],
       procedimiento: [''],
       fecharealizado: [''],
-      paciente: [''],
+      paciente: [cedulainscrita],
       tratamiento: [''],
       patologia: [''],
     }));

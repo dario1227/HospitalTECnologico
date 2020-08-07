@@ -26,7 +26,7 @@ export class sincronizacionComponent implements OnInit {
         else{
           (res as []).forEach((paciente: any) => {
             this.PacienteForms.push(this.fb.group({
-              dataID : [1],
+              dataID : [0],
               cedula: [paciente.cedula.toString()],
               nombre : [paciente.nombre],
               apellido : [paciente.apellido],
@@ -34,6 +34,8 @@ export class sincronizacionComponent implements OnInit {
               direccion : ['San Jose'],
               nacimiento: [new Date()],
               medico: ['778855256'],
+              tratamientos:[''],
+              patologias:['']
             }));
           });
         }
@@ -50,6 +52,8 @@ export class sincronizacionComponent implements OnInit {
       direccion: [''],
       nacimiento: [''],
       medico: [''],
+      tratamientos:[''],
+      patologias:['']
     }));
   }
   recordSubmit(fg: FormGroup){

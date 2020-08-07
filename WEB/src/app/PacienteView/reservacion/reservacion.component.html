@@ -45,9 +45,8 @@
         <input class="form-control" formControlName="fechasalida" size="5" type="date">
       </div>
       <div class="td">
-        <select class="form-control" formControlName="paciente" >
-          <option *ngFor=" let item of pacientes" value="{{item.cedula}}">{{item.cedula}}</option>
-        </select>      </div>
+        <input class="form-control" formControlName="paciente" [readonly]="true">
+      </div>
       <div class="td">
         <select class="form-control" formControlName="cama" >
           <option *ngFor=" let item of camas" value="{{item.camaid}}">{{item.camaid}}</option>
