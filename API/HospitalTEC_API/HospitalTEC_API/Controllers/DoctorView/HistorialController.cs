@@ -26,7 +26,7 @@ namespace HospitalTEC_API.Controllers
         // la base de datos.
         public IEnumerable<Historial> GetHistorial()
         {
-            return context.historial_clinico.ToList();
+            return context.historial_clinico.FromSqlRaw(" SELECT * from ORDENHistorial()");
         }
         
         [HttpPost]

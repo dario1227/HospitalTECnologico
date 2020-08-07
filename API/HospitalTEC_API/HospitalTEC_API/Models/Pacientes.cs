@@ -13,6 +13,8 @@ namespace HospitalTEC_API.Models
         public DateTime nacimiento { get; set; }
         public string medico { get; set; }
         public string direccion { get; set; }
-        public string reservacion { get; set; }
+        public string tratamientos { get; set; }
+        public string patologias { get; set; }
+
     }
 }
