@@ -1,13 +1,14 @@
 CREATE SEQUENCE number;
 CREATE TABLE PACIENTE(
-	Cedula VARCHAR(9),
+	Cedula VARCHAR,
 	Nombre VARCHAR,
 	Apellido VARCHAR,
 	Telefono VARCHAR,
 	Nacimiento DATE,
-	Medico VARCHAR(9),
+	Medico VARCHAR,
 	Direccion VARCHAR,
-	Reservacion VARCHAR,
+	Tratamientos VARCHAR,
+	Patologias VARCHAR,
 	PRIMARY KEY(Cedula)
 );
 CREATE TABLE CAMA(
@@ -34,11 +35,11 @@ CREATE TABLE RESERVACION(
 	Procedimiento VARCHAR,
 	FechaIngreso DATE,
 	FechaSalida DATE,
-	Paciente VARCHAR(9),
+	Paciente VARCHAR,
 	Cama VARCHAR
 );
 CREATE TABLE PERSONAL(
-	Cedula VARCHAR(9),
+	Cedula VARCHAR,
 	Nombre VARCHAR,
 	Apellido VARCHAR,
 	Telefono VARCHAR,
@@ -51,7 +52,7 @@ CREATE TABLE PERSONAL(
 CREATE TABLE HISTORIAL_CLINICO(
 	HistorialID  VARCHAR PRIMARY KEY CHECK (HistorialID ~ '^HC[0-9]+$' ) DEFAULT 'HC'  || nextval('number'),
 	Procedimiento VARCHAR,
-	Paciente VARCHAR (9),
+	Paciente VARCHAR ,
 	FechaRealizado DATE,
 	Tratamiento VARCHAR ,
 	Patologia VARCHAR
