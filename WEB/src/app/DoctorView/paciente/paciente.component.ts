@@ -33,6 +33,8 @@ export class PacienteComponent implements OnInit {
               direccion: [paciente.direccion],
               nacimiento: [new Date(paciente.nacimiento).toISOString().split('T')[0]],
               medico: [paciente.medico],
+              tratamientos:[paciente.tratamientos],
+              patologias:[paciente.patologias]
             }));
           });
         }
@@ -50,6 +52,8 @@ export class PacienteComponent implements OnInit {
       direccion: [''],
       nacimiento: [''],
       medico: [''],
+      tratamientos:[''],
+      patologias:['']
     }));
   }
   recordSubmit(fg: FormGroup){

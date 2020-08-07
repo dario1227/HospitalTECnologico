@@ -31,6 +31,8 @@ export class AgregarComponent implements OnInit {
       direccion: [''],
       nacimiento: [''],
       medico: [''],
+      patologias:[''],
+      tratamientos:['']
     }));
   }
   recordSubmit(fg: FormGroup){

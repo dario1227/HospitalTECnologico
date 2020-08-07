@@ -23,6 +23,8 @@
       <div class="td">Direccion</div>
       <div class="td">Medico</div>
       <div class="td">Nacimiento</div>
+      <div class="td">Patologias</div>
+      <div class="td">Tratamientos</div>
       <div class="td">
         <button class="btn btn-outline-success" (click)="addpaciente()">
           <i class="fa fa-plus"></i>Nuevo
@@ -54,6 +56,12 @@
       </div>
       <div class="td">
         <input class="form-control" formControlName="nacimiento" size="5" type="date">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="patologias">
+      </div>
+      <div class="td">
+        <input class="form-control" formControlName="tratamientos">
       </div>
       <div class="center" >
         <button type="submit" class="btn" [ngClass]="(fg.get('dataID').value==0)?'btn-success':'btn btn-light'"><i
